@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class time {
+	public static void main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		int secs = in.nextInt();
+		int mins = secs/60;
+		double hrs = 0;
+		while(mins > 59) {
+			hrs += 1;
+			mins -= 60;
+		}		
+		int days=0;
+		while(hrs > 23) {
+			days += 1;
+			hrs -= 24;
+		}
+		System.out.println(secs + " is equal to "+days+" days "+hrs+" hours "+mins+" minutes and "+secs%60+" seconds.");
+	}
+}
