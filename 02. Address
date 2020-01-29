@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+class address {
+    public String city, state, country;
+    public int st_num;
+    address(int st_num, String city, String state, String country){
+        this.st_num = st_num;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        
+    }
+    address(address addr){
+        this.st_num = addr.st_num;
+        this.city = addr.city;
+        this.state = addr.state;
+        this.country = addr.country;
+    }
+}
+
+class student{
+    address addr;
+    String usn, name;
+    student(String name, String usn, address addr){
+        this.addr = addr;
+        this.usn = usn;
+        this.name = name;
+//        this.addr = new address(addr);
+    }
+}
+
+class college{
+    String name;
+    address addr;
+    college(String name, address addr){
+        this.name = name;
+        this.addr = addr;
+//        this.addr = new address(addr);
+    }
+}
+
+class employee{
+    String emp_id, name;
+    address addr;
+    employee(String name, String emp_id, address addr){
+        this.name = name;
+        this.emp_id = emp_id;
+        this.addr = addr;
+//        this.addr = new address(addr);
+    }
+}
+
+class display{
+    private address addr;
+    public display(address addr){
+        this.addr = new address(addr);
+        System.out.println(""+addr.st_num+", "+addr.city+", "+addr.state+
+                ", "+addr.country+".");
+    }
+}
+public class prgm2{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        student[] students = new student[n];
+        college[] colleges = new college[n];
+        employee[] employees = new employee[n];
+
+        for(int i=0; i<n; i++){
+            String usn = in.next();
+            String name = in.next();
+            int st_num = in.nextInt();
+            String city = in.next();
+            String state = in.next();
+            String country = in.next();
+            address stu_addr = new address(st_num, city, state, country);
+            students[i] = new student(name, usn, stu_addr);
+            display dis = new display(stu_addr);
+
+            name = in.next();
+            st_num = in.nextInt();
+            city = in.next();
+            state = in.next();
+            country = in.next();
+            address college_addr = new address(st_num, city, state, country);
+            colleges[i] = new college(name, college_addr);
+            display dis1 = new display(college_addr);
+
+            name = in.next();
+            String emp_id = in.next();
+            st_num = in.nextInt();
+            city = in.next();
+            state = in.next();
+            country = in.next();
+            address emp_addr = new address(st_num, city, state, country);
+            display dis2 = new display(emp_addr);
+            employees[i] = new employee(name, emp_id, emp_addr);
+        }
+    }
+}
