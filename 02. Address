@@ -16,6 +16,10 @@ class address {
         this.state = addr.state;
         this.country = addr.country;
     }
+    public static void display(address addr){
+        System.out.print(" and lives at"+addr.st_num+", "+addr.city+", "+addr.state+
+                ", "+addr.country+".");
+    }
 }
 
 class student{
@@ -27,6 +31,10 @@ class student{
         this.name = name;
 //        this.addr = new address(addr);
     }
+    public void display(){
+        System.out.print(name+" has USN "+usn+" and lives at"+addr.st_num+", "+addr.city+", "
+                +addr.state+", "+addr.country+".");
+    }
 }
 
 class college{
@@ -36,6 +44,10 @@ class college{
         this.name = name;
         this.addr = addr;
 //        this.addr = new address(addr);
+    }
+    public void display(){
+        System.out.print(name+" College is at "+addr.st_num+", "+addr.city+", "+addr.state
+                +", "+addr.country+".");
     }
 }
 
@@ -48,14 +60,9 @@ class employee{
         this.addr = addr;
 //        this.addr = new address(addr);
     }
-}
-
-class display{
-    private address addr;
-    public display(address addr){
-        this.addr = new address(addr);
-        System.out.println(""+addr.st_num+", "+addr.city+", "+addr.state+
-                ", "+addr.country+".");
+    public void display(){
+        System.out.print(name+" has id "+emp_id+" and lives at "+addr.st_num+", "+addr.city+", "
+                +addr.state+", "+addr.country+".");
     }
 }
 public class prgm2{
@@ -75,7 +82,8 @@ public class prgm2{
             String country = in.next();
             address stu_addr = new address(st_num, city, state, country);
             students[i] = new student(name, usn, stu_addr);
-            display dis = new display(stu_addr);
+            students[i].display();
+            System.out.println();
 
             name = in.next();
             st_num = in.nextInt();
@@ -84,7 +92,8 @@ public class prgm2{
             country = in.next();
             address college_addr = new address(st_num, city, state, country);
             colleges[i] = new college(name, college_addr);
-            display dis1 = new display(college_addr);
+            colleges[i].display();
+            System.out.println();
 
             name = in.next();
             String emp_id = in.next();
@@ -93,8 +102,9 @@ public class prgm2{
             state = in.next();
             country = in.next();
             address emp_addr = new address(st_num, city, state, country);
-            display dis2 = new display(emp_addr);
             employees[i] = new employee(name, emp_id, emp_addr);
+            employees[i].display();
+            System.out.println();
         }
     }
 }
