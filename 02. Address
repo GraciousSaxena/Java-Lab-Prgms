@@ -1,3 +1,5 @@
+package Address;
+
 import java.util.Scanner;
 
 class address {
@@ -8,13 +10,6 @@ class address {
         this.city = city;
         this.state = state;
         this.country = country;
-        
-    }
-    address(address addr){
-        this.st_num = addr.st_num;
-        this.city = addr.city;
-        this.state = addr.state;
-        this.country = addr.country;
     }
     public static void display(address addr){
         System.out.print(" and lives at "+addr.st_num+", "+addr.city+", "+addr.state+
