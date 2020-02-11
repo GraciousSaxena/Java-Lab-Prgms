@@ -5,55 +5,53 @@ import java.util.Scanner;
 class address {
     public String city, state, country;
     public int st_num;
+    address(){}
     address(int st_num, String city, String state, String country){
         this.st_num = st_num;
         this.city = city;
         this.state = state;
         this.country = country;
     }
-    public static void display(address addr){
+    public void display(address addr){
         System.out.print(" and lives at "+addr.st_num+", "+addr.city+", "+addr.state+
                 ", "+addr.country+".");
     }
 }
 
-class student{
+class student extends address{
     address addr;
     String usn, name;
     student(String name, String usn, address addr){
         this.addr = addr;
         this.usn = usn;
         this.name = name;
-//        this.addr = new address(addr);
     }
     public void display(){
-        System.out.print(name+" has USN "+usn+" and lives at"+addr.st_num+", "+addr.city+", "
+        System.out.println(name+" has USN "+usn+" and lives at "+addr.st_num+", "+addr.city+", "
                 +addr.state+", "+addr.country+".");
     }
 }
 
-class college{
+class college extends address{
     String name;
     address addr;
     college(String name, address addr){
         this.name = name;
         this.addr = addr;
-//        this.addr = new address(addr);
     }
     public void display(){
-        System.out.print(name+" College is at "+addr.st_num+", "+addr.city+", "+addr.state
+        System.out.println(name+" College is at "+addr.st_num+", "+addr.city+", "+addr.state
                 +", "+addr.country+".");
     }
 }
 
-class employee{
+class employee extends address{
     String emp_id, name;
     address addr;
     employee(String name, String emp_id, address addr){
         this.name = name;
         this.emp_id = emp_id;
         this.addr = addr;
-//        this.addr = new address(addr);
     }
     public void display(){
         System.out.println(name+" has id "+emp_id+" and lives at "+addr.st_num+", "+addr.city+", "
@@ -92,7 +90,7 @@ public class Addr{
             address college_addr = new address(st_num, city, state, country);
             colleges[i] = new college(name, college_addr);
 
-        	System.out.println("Enter the Name, Emp_ID, Street no., City, State and Country of the student");
+        	System.out.println("Enter the Name, Emp_ID, Street no., City, State and Country of the Employee");
             name = in.nextLine();
             String emp_id = in.nextLine();
             st_num = in.nextInt();
