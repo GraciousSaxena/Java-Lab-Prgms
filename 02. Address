@@ -17,7 +17,7 @@ class address {
         this.country = addr.country;
     }
     public static void display(address addr){
-        System.out.print(" and lives at"+addr.st_num+", "+addr.city+", "+addr.state+
+        System.out.print(" and lives at "+addr.st_num+", "+addr.city+", "+addr.state+
                 ", "+addr.country+".");
     }
 }
@@ -61,50 +61,61 @@ class employee{
 //        this.addr = new address(addr);
     }
     public void display(){
-        System.out.print(name+" has id "+emp_id+" and lives at "+addr.st_num+", "+addr.city+", "
+        System.out.println(name+" has id "+emp_id+" and lives at "+addr.st_num+", "+addr.city+", "
                 +addr.state+", "+addr.country+".");
     }
 }
-public class prgm2{
+public class Addr{
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
+    	System.out.println("Enter the number of entry::");
         int n = in.nextInt();
         student[] students = new student[n];
         college[] colleges = new college[n];
         employee[] employees = new employee[n];
+        in.nextLine();
 
         for(int i=0; i<n; i++){
-            String usn = in.next();
-            String name = in.next();
+        	System.out.println("Enter the USN, Name, Street no., City, State and Country of the student");
+            String usn = in.nextLine();
+            String name = in.nextLine();
             int st_num = in.nextInt();
-            String city = in.next();
-            String state = in.next();
-            String country = in.next();
+            in.nextLine();
+            String city = in.nextLine();
+            String state = in.nextLine();
+            String country = in.nextLine();
             address stu_addr = new address(st_num, city, state, country);
             students[i] = new student(name, usn, stu_addr);
-            students[i].display();
-            System.out.println();
 
-            name = in.next();
+        	System.out.println("Enter the Name, Street no., City, State and Country of the College");
+            name = in.nextLine();
             st_num = in.nextInt();
-            city = in.next();
-            state = in.next();
-            country = in.next();
+            in.nextLine();
+            city = in.nextLine();
+            state = in.nextLine();
+            country = in.nextLine();
             address college_addr = new address(st_num, city, state, country);
             colleges[i] = new college(name, college_addr);
-            colleges[i].display();
-            System.out.println();
 
-            name = in.next();
-            String emp_id = in.next();
+        	System.out.println("Enter the Name, Emp_ID, Street no., City, State and Country of the student");
+            name = in.nextLine();
+            String emp_id = in.nextLine();
             st_num = in.nextInt();
-            city = in.next();
-            state = in.next();
-            country = in.next();
+            in.nextLine();
+            city = in.nextLine();
+            state = in.nextLine();
+            country = in.nextLine();
             address emp_addr = new address(st_num, city, state, country);
             employees[i] = new employee(name, emp_id, emp_addr);
-            employees[i].display();
-            System.out.println();
+        }
+        
+        for(int i = 0; i<n; i++) {
+	        students[i].display();
+	        System.out.println();
+	        colleges[i].display();
+	        System.out.println();
+	        employees[i].display();
+	        System.out.println();System.out.println();
         }
     }
 }
