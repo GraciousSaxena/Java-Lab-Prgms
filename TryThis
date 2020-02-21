@@ -1,0 +1,118 @@
+/*
+There are C cakes in a row, numbered from 1 to C. There are N children, each of whom have selected a consecutive set of cakes to eat.
+That is, Child i has decided to eat all the cakes from Si to Ei, end points inclusive. If there is a cake which appears in some two
+childrens' set, then they will fight because both of them want to eat that cake, and you don't want that to happen.
+
+You will be given an integer K which will be either 0 or 1. If K is 0, then you should find out if some two children will fight.
+Print "Good" if no one fights, and "Bad" if someone fights.
+
+If K is 1, then you can persuade at most one child to change his decision to some other set of cakes. But the number of cakes that he
+eats must be the same. That is, if Child i had initially decided that he wants to eat the cakes from Si to Ei, then you could persuade
+the child to instead eat the cakes from X to Y instead, for any valid X and Y (ie. 1 ≤ X ≤ Y ≤ C), provided that the number of cakes is 
+the same (ie. Ei - Si + 1 = Y - X + 1). If after persuading at most 1 Child to change his decision, no fights happen, then print "Good".
+But if no matter what you do, someone will fight, then print "Bad".
+
+Sample input 1
+5 2 0
+2 2
+3 5
+Sample output 1
+Good
+Sample input 2
+5 2 1
+2 2
+2 5
+Sample output 2
+Good
+Sample input 3
+5 2 1
+2 3
+2 5
+Sample output 3
+Bad
+Explanation
+Sample 1: Child 1 wants to eat the second cake, and Child 2 wants to eat Cakes 3, 4 and 5. So there is no fight, and the answer is 
+"Good".
+
+Sample 2: Child 1 wants to eat Cake 2, and Child 2 wants to eat Cakes 2, 3, 4 and 5. Both of them want to eat Cake 2, and hence it
+could lead to a fight. But because K = 1, we can persuade one of the children to change their decision. For instance, we could persuade
+Child 1 to change his decision from [2, 2] to [1, 1]. After this, there is no fight, and the hence answer is "Good".
+
+Sample 3: Child 1 wants to eat Cake 2 and Cake 3, and Child 2 wants to eat Cakes 2, 3, 4 and 5. Both of them want to eat Cakes 2 and 3,
+and hence it could lead to a fight. And because K = 1, we can persuade one of the children to change their decision. For instance, we
+could persuade Child 1 to change his decision from [2, 3] to [1, 2]. But even after this, both of them want to eat Cake 2. You can
+verify that no matter how we persuade at most 1 child, they will end up fighting. Hence the answer is "Bad".
+*/
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class hi {
+	public static void main(String[] input) {
+		Scanner in = new Scanner(System.in);
+		int C = in.nextInt(), N = in.nextInt(), K = in.nextInt();
+		int[][] eat = new int[N][2];
+		for(int i = 0; i<N; i++) {
+			eat[i][0] = in.nextInt();
+			eat[i][1] = in.nextInt();
+		}
+		if(C == 0) {
+			System.out.println("Bad");
+			return;
+		}
+		int flag=0,total=0;
+		for(int i=0; i<N; i++) {
+			total += eat[i][1] - eat[i][0];
+		}
+		total = C - total;
+		Arrays.sort(eat, new Comparator<int[]>() { 
+            
+	          @Override              
+	          // Compare values according to columns 
+	          public int compare(final int[] entry1,  
+	                             final int[] entry2) { 
+	  
+	            if (entry1[0] > entry2[0]) 
+	                return 1; 
+	            else
+	                return -1; 
+	          } 
+	        });
+		if(K==0) {
+			for(int i=0; i<N; i++) {
+				for(int j=i+1; j<N; j++) {
+					if((eat[i][0] >= eat[j][0] && eat[i][0] <= eat[j][1]) || (eat[i][1] >= eat[j][0] && eat[i][1] <= eat[j][1]) || (eat[i][0] <= eat[j][0] && eat[i][1] >= eat[j][1])) {
+						System.out.println("Bad");
+						return;
+					}
+				}
+			}
+			System.out.println("Good");
+			return;
+		}
+		else {
+			for(int i=0; i<N; i++) {
+				for(int j=i+1; j<N; j++) {
+					if((eat[i][0] >= eat[j][0] && eat[i][0] <= eat[j][1]) || (eat[i][1] >= eat[j][0] && eat[i][1] <= eat[j][1]) || (eat[i][0] <= eat[j][0] && eat[i][1] >= eat[j][1])) {
+						int count = eat[i][1]-eat[i][0];
+						if(total > count) {
+							total -= count;
+						}
+						else {
+							flag = 1;
+							break;							
+						}
+					}
+					if(flag == 1)
+						break;
+				}
+			}
+		}
+		if(flag == 0)
+			System.out.println("Bad");
+		else
+			System.out.println("Good");
+	}
+}
