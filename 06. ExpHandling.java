@@ -9,7 +9,7 @@ public class Main {
         String cont = "yes";
         Account acc = new Account();
         while(cont.equals("yes")||cont.equals("y")){
-            System.out.println("Menu::\n1.Deposit\n2.Withdraw\n3.Current Balance");
+            System.out.println("\nMenu::\n1.Deposit\n2.Withdraw\n3.Current Balance\n4.Exit");
             int ch = in.nextInt();
             switch(ch){
                 case 1: double amt = in.nextDouble();
@@ -45,30 +45,31 @@ public class DemonitizationException extends Exception{
     }
 }
 
-// Account Class
+// ACCOUNT
+
 package ExceptionHandling;
 
 public class Account {
     double balance;
     void deposit(double amt, String curr) {
         curr = curr.toUpperCase();
+        curr = curr.trim();
         try {
-            if (curr.equals("OLD") && amt > 5000){
-                throw new DemonitizationException(amt);
-            }
-            else{
-                System.out.println("Depositing Rs."+amt+" in the Account.");
-                balance += amt;
-            }
+        	if (curr.equals("OLD") && amt > 5000)
+        		throw new DemonitizationException(amt);
+        	else {
+        		System.out.println("Depositing Rs."+amt+" in the Account.");
+        		balance += amt;
+        	}
         }
-        catch (DemonitizationException ex){
-            System.out.println(""+ex);
+        catch (DemonitizationException ex) {
+        	System.out.println("Message :: "+ex);
         }
     }
     void withdraw(double amt){
         try{
             if(balance-amt < 500){
-                throw new DemonitizationException("Account has minimum amount");
+                throw new DemonitizationException("Account has minimum amount of Rs.500");
             }
             else{
                 System.out.println("Withdrawing Rs."+amt+" from your account.");
