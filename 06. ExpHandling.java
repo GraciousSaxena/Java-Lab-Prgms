@@ -1,53 +1,4 @@
-// Main
-package ExceptionHandling;
-
 import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        String cont = "yes";
-        Account acc = new Account();
-        while(cont.equals("yes")||cont.equals("y")){
-            System.out.println("\nMenu::\n1.Deposit\n2.Withdraw\n3.Current Balance\n4.Exit");
-            int ch = in.nextInt();
-            switch(ch){
-                case 1: double amt = in.nextDouble();
-                        String curr = in.nextLine();
-                        acc.deposit(amt, curr);
-                        break;
-                case 2: amt = in.nextDouble();
-                        acc.withdraw(amt);
-                        break;
-                case 3: acc.currBalance();
-                        break;
-                default:System.out.println("\nInvalid choice");
-            }
-            cont = in.nextLine();
-            cont.toLowerCase();
-        }
-    }
-}
-
-//MyException class
-package ExceptionHandling;
-
-public class DemonitizationException extends Exception{
-    double amount;
-    DemonitizationException(double amount){
-        this.amount = amount;
-    }
-    DemonitizationException(String s){
-        super(s);
-    }
-    public String toString(){
-        return "Deposit of old currency of Rs."+(int)amount+" crosses Rs.5000 limit";
-    }
-}
-
-// ACCOUNT
-
-package ExceptionHandling;
 
 public class Account {
     double balance;
@@ -82,5 +33,45 @@ public class Account {
     }
     void currBalance(){
         System.out.println("The current balance is Rs."+balance+" only.");
+    }
+}
+
+public class DemonitizationException extends Exception{
+    double amount;
+    DemonitizationException(double amount){
+        this.amount = amount;
+    }
+    DemonitizationException(String s){
+        super(s);
+    }
+    public String toString(){
+        return "Deposit of old currency of Rs."+(int)amount+" crosses Rs.5000 limit";
+    }
+}
+
+// Main
+public class Main {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        String cont = "yes";
+        Account acc = new Account();
+        while(cont.equals("yes")||cont.equals("y")){
+            System.out.println("\nMenu::\n1.Deposit\n2.Withdraw\n3.Current Balance\n4.Exit");
+            int ch = in.nextInt();
+            switch(ch){
+                case 1: double amt = in.nextDouble();
+                        String curr = in.nextLine();
+                        acc.deposit(amt, curr);
+                        break;
+                case 2: amt = in.nextDouble();
+                        acc.withdraw(amt);
+                        break;
+                case 3: acc.currBalance();
+                        break;
+                default:System.out.println("\nInvalid choice");
+            }
+            cont = in.nextLine();
+            cont.toLowerCase();
+        }
     }
 }
