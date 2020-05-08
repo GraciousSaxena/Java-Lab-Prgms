@@ -93,6 +93,18 @@ class Consumer extends Thread {
 
 public class Main {
 	public static void main(String[] args) {
+		System.out.println("Multithreading \r\n" + 
+				" \r\n" + 
+				"Design and develop a Java program for the fruit market problem. The farmer \n"
+				+ "will be able to produce different types of fruits (apple, orange, grape, and \n"
+				+ "watermelon), and put them in the market to sell. The market has limited capacity \n"
+				+ "and farmers have to stand in a queue if the capacity is exceeded to sell their fruits. \n"
+				+ "Consumers can come to the market any time and purchase their desired fruits; and \n"
+				+ "if the fruits they want to buy runs out, they are willing to wait until the supply \n"
+				+ "of that kind is ready. Examine and formulate an approach to address this problem and \n"
+				+ "implement the same using Java constructs for programming. \r\n" + 
+				"\r\n" + 
+				"");
 		Market m = new Market(3);
 
 		Farmer f = new Farmer(m);
