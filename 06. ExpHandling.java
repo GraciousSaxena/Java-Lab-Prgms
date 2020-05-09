@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Account {
+class Account {
     double balance;
     void deposit(double amt, String curr) {
         curr = curr.toUpperCase();
@@ -36,7 +36,7 @@ public class Account {
     }
 }
 
-public class DemonitizationException extends Exception{
+class DemonitizationException extends Exception{
     double amount;
     DemonitizationException(double amount){
         this.amount = amount;
@@ -50,12 +50,12 @@ public class DemonitizationException extends Exception{
 }
 
 // Main
-public class Main {
+public class prgm6 {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String cont = "yes";
         Account acc = new Account();
-        while(cont.equals("yes")||cont.equals("y")){
+        while(true){
             System.out.println("\nMenu::\n1.Deposit\n2.Withdraw\n3.Current Balance\n4.Exit");
             int ch = in.nextInt();
             switch(ch){
@@ -68,10 +68,11 @@ public class Main {
                         break;
                 case 3: acc.currBalance();
                         break;
-                default:System.out.println("\nInvalid choice");
+                default:System.exit(1);
+                		System.out.println("\nInvalid choice");
             }
-            cont = in.nextLine();
-            cont.toLowerCase();
+//            cont = in.nextLine();
+//            cont.toLowerCase();
         }
     }
 }
