@@ -9,8 +9,6 @@ public class substring {
 		Scanner in = new Scanner(System.in);
 
 		String inp = in.nextLine();
-
-		in.close();
 		
 		System.out.println("Enter the character/s by which the sentence must be divided to substrings: ");
 
