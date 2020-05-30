@@ -1,3 +1,18 @@
+
+/*
+
+Collections
+Write a Java program to create a new array list, add some colors (string) and perform the following operations:
+
+(i)	  Add  elements of List to ArrayList			(list.add())
+(ii)  Copy ArrayList to Array						((String[])list.toArray())
+(iii) Reverse ArrayList content						(for loop)
+(iv)  Get Sub list from an ArrayList.				(make a new list, with parameter as list.subList(start, end)
+(v)	  To sort a given ArrayList						(Collections.sort(list))
+(vi)  Clone an ArrayList to another ArrayList		((ArrayList<String>)(list.clone()))
+
+*/
+
 package Collections;
 
 import java.util.*;
