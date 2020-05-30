@@ -1,3 +1,13 @@
+/*
+
+ Design an Address class with member variables Street num, city, state and country and appropriate constructor. Design a Student class
+ with constructor (Student (String USN, String Name, and Address addr)), College class with constructor (College (String Name, Address 
+ addr)) and Employee class with constructor (Employee (String EmpID, String Name, Address addr)). Write a Java program to create ‘n’ 
+ Student objects, College Objects and Employee objects and print the student, college and employee addresses respectively and 
+ demonstrate passing of object as a parameter to the constructor.
+
+*/
+
 package Address;
 
 import java.util.Scanner;
