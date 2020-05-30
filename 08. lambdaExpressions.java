@@ -1,5 +1,76 @@
+
+//				MY PROGRAM
+
+package prgm8;
+
+import java.util.Scanner;
+
 /*
-			NOT MY PROGRAM
+
+Write the following methods that return a lambda expression performing a specified action:
+
+(i) 	PerformOperation isOdd(): The lambda expression must return true if a number is odd
+		or false if it is even.
+(ii) 	PerformOperation isPrime(): The lambda expression must return true if a number is
+		prime or false if it is composite.
+(iii) 	PerformOperation isPalindrome(): The lambda expression must return true if a
+		number is a palindrome or false if it is not.
+
+Write a JAVA program using above lambda expressions to take 2 integers as input where the first integer specifies the 
+condition to check for (case 1 for Odd/Even, case 2 for
+Prime/Composite, or case 3 for Palindrome). The second integer denotes the number to be
+checked.
+
+*/
+
+interface PerformOperation {
+	boolean operation(int x);
+}
+
+public class prgm8 {
+	public static void main(String[] args) {
+		PerformOperation isOdd = (int a)-> a%2 != 0;
+		PerformOperation isPrime = (int a)->{
+			for(int i=2; i<=a/2; i++)
+				if(a%i==0)
+					return false;
+			return true;
+		};
+		PerformOperation isPalindrome = (int a)->{
+			int n = 0, t=a;
+			while(t>0) {
+				n *= 10;
+				n += t%10;
+				t /= 10;
+			}
+			return n == a;
+		};
+		
+		Scanner in = new Scanner(System.in);
+		
+		while(true) {
+			int ch=0, n=0;
+			ch = in.nextInt();
+			n = in.nextInt();
+			
+			switch(ch) {
+				case 1: System.out.println("isOdd " + isOdd.operation(n));
+						break;
+				case 2: System.out.println("isPrime " + isPrime.operation(n));
+						break;
+				case 3: System.out.println("isPalin " + isPalindrome.operation(n));
+						break;
+				default: System.exit(1);
+			}			
+		}
+	}
+}
+
+
+
+
+/*
+				NOT MY PROGRAM
 			
 package LambdaExpressions;
 
@@ -119,70 +190,3 @@ public class Main {
 	}
 }
 */
-
-//				MY PROGRAM
-
-package prgm8;
-
-import java.util.Scanner;
-
-/*
-
-Write the following methods that return a lambda expression performing a specified action:
-
-(i) 	PerformOperation isOdd(): The lambda expression must return true if a number is odd
-		or false if it is even.
-(ii) 	PerformOperation isPrime(): The lambda expression must return true if a number is
-		prime or false if it is composite.
-(iii) 	PerformOperation isPalindrome(): The lambda expression must return true if a
-		number is a palindrome or false if it is not.
-
-Write a JAVA program using above lambda expressions to take 2 integers as input where the first integer specifies the 
-condition to check for (case 1 for Odd/Even, case 2 for
-Prime/Composite, or case 3 for Palindrome). The second integer denotes the number to be
-checked.
-
-*/
-
-interface PerformOperation {
-	boolean operation(int x);
-}
-
-public class prgm8 {
-	public static void main(String[] args) {
-		PerformOperation isOdd = (int a)-> a%2 != 0;
-		PerformOperation isPrime = (int a)->{
-			for(int i=2; i<=a/2; i++)
-				if(a%i==0)
-					return false;
-			return true;
-		};
-		PerformOperation isPalindrome = (int a)->{
-			int n = 0, t=a;
-			while(t>0) {
-				n *= 10;
-				n += t%10;
-				t /= 10;
-			}
-			return n == a;
-		};
-		
-		Scanner in = new Scanner(System.in);
-		
-		while(true) {
-			int ch=0, n=0;
-			ch = in.nextInt();
-			n = in.nextInt();
-			
-			switch(ch) {
-				case 1: System.out.println("isOdd " + isOdd.operation(n));
-						break;
-				case 2: System.out.println("isPrime " + isPrime.operation(n));
-						break;
-				case 3: System.out.println("isPalin " + isPalindrome.operation(n));
-						break;
-				default: System.exit(1);
-			}			
-		}
-	}
-}
