@@ -1,3 +1,19 @@
+/*
+
+Design and implement a Java program for the following requirements:	
+a)	An Exception class called Demonetization Exception which returns the statement that says “Deposit of Old currency of 
+    (Rs_____) crosses Rs. 5,000 and cannot be deposited”.   
+b)	A class called ‘Account’ that creates account with 500 Rs minimum balance with following methods.
+	i.	 Deposit (amount, currencyType) method to deposit amount. This class should handle “Demonetization Exception” and print the 
+	     message defined in this Exception class. If a currency type is “OLD” and the amount is greater than 5,000 then throw the 
+	     Demonetization Exception, otherwise update the balance. 
+	ii.	 currBalance() method that displays balance amount in the account.
+	iii. withdraw(amount) method to withdraw amount and update the balance. Use proper control structure to check Balance should not 
+	     go less than 500.  
+c)	A ‘Customer’ class that creates Account object and call the methods deposit(), withdraw() and currBalance() based on the user choice. 
+
+*/
+
 import java.util.Scanner;
 
 class Account {
