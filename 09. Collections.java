@@ -73,16 +73,6 @@ public class main {
 		int choice, start, end;
 		String color;
 		Scanner in = new Scanner(System.in);
-		System.out.println("Collections\r\n" + 
-				"Write a Java program to create a new array list, add some colors (string) and perform the following operations:\r\n" + 
-				"(i)	Add  elements of List to ArrayList\r\n" + 
-				"(ii)	Copy ArrayList to Array\r\n" + 
-				"(iii)	Reverse ArrayList content\r\n" + 
-				"(iv)	Get Sub list from an ArrayList.\r\n" + 
-				"(v)	To sort a given ArrayList\r\n" + 
-				"(vi)	Clone an ArrayList to another ArrayList\r\n" + 
-				"");
-
 		System.out.println("1. Add items to the list\t 2. Display items of the list\t 3. Convert list to array\t\n"
 				+ "4. Reverse List\t 5. Print SubArray\t 6. Sort the List\t 7. Clone List");
 		Arrays obj = new Arrays();
