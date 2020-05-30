@@ -1,3 +1,12 @@
+/*
+ * Design a base class Circle with member variables (radius and color) of type double, methods (getRadius(), getArea()) 
+ * and constructors (Circle(radius), Circle(radius, color)). Derive subclass called Cylinder from the superclass Circle 
+ * with member variable (height) of type double, public methods (getHeight(), getVolume(), getArea()) and its constructors
+ * (Cylinder(height, radius), Cylinder(height, radius,color)). Create the two instances of cylinder and print similar cylinders 
+ * if the area, volume and color of cylinders are same. Demonstrate the code reuse and polymorphism properties of Object 
+ * oriented programming by inheriting the constructors and methods of the base class.
+*/
+
 import java.util.Scanner;
 
 class circle{
