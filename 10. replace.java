@@ -1,3 +1,14 @@
+/*
+
+String Handling 
+
+i)	 Write a Java program to find the penultimate (next to last) word of a sentence.
+ii)	 Write program to replace a string "python" with "java" and "java" with "python" in a given string.
+iii) Write a program that splits a string into a number of substrings with the help of string split() method and then 
+	 prints the substrings.
+
+*/
+
 package stringHandling;
 
 import java.util.*;
