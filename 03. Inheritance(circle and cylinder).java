@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class circle{
     double radius;
-    String color;
+    String color = "default";
     circle(){}
     circle(int radius){
         this.radius = radius;
@@ -44,12 +44,11 @@ class cylinder extends  circle{
     }
 
     public double getArea(){
-        return 3.1415*radius*height;
+        return 2*3.1415*radius*height;
     }
     public double getVolume(){
         return 3.1415*radius*radius*height;
     }
-
     @Override
     public String getColor() {
         return super.getColor();
@@ -59,7 +58,7 @@ public class prgm3 {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         String cont = "yes";
-        while(!cont.equals("No") && !cont.equals("n") && !cont.equals("no")) {
+        while(!cont.toLowerCase().equals("no") && !cont.equals("n")) {
             double radius1 = in.nextDouble();
             double height1 = in.nextDouble();
             double radius2 = in.nextDouble();
@@ -69,7 +68,7 @@ public class prgm3 {
             
             System.out.println("Do you want to add colors to your cylinders??");
             String colorch = in.next();
-            if (!colorch.equals("No") && !colorch.equals("no") && !colorch.equals("n")) {
+            if (!colorch.toLowerCase().equals("no") && !colorch.toLowerCase().equals("n")) {
                 String color1 = in.next();
                 String color2 = in.next();
                 c1 = new cylinder(height1, radius1, color1);
