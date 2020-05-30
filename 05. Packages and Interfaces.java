@@ -1,13 +1,13 @@
-public interface Animal {
+interface Animal {
 	void eat();
 	void sound();
 }
 
-public interface TiredAnimal extends Animal{
+interface TiredAnimal extends Animal{
 	void tired();
 }
 
-public class snake implements Animal, TiredAnimal{
+class snake implements Animal, TiredAnimal{
 	public void eat() {
 		System.out.println("Snake:: I am carnivorous!");
 	}
@@ -19,7 +19,7 @@ public class snake implements Animal, TiredAnimal{
 	}
 }
 
-public class lion implements Animal, TiredAnimal{
+class lion implements Animal, TiredAnimal{
 
 	public void tired() {
 		System.out.println("Lion:: I am always lazy!");
